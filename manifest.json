@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "Bookmark Buddy",
+    "description": "A simple bookmark management tool for Chrome.",
+    "version": "1.0",
+    "permissions": [
+      "bookmarks", 
+      "storage"
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "/assets/logo.png"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "icons": {
+      "16": "/assets/logo.png",
+      "48": "/assets/logo.png",
+      "128": "/assets/logo.png"
+    }
+  }
+  

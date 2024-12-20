@@ -1,0 +1,303 @@
+/* General Body Styles */
+body {
+    width: 450px; /* Set the width of the body */
+    height: 540px; /* Set the height of the body */
+    background: #eeeeee; /* Light background color */
+    color: #22242b; /* Text color */
+    font-family: Arial, sans-serif; /* Font family */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color changes */
+}
+
+/* Header Section */
+.header {
+    height: 50px; /* Set the height of the header */
+    background: #22242b; /* Dark background for the header */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space items evenly */
+    padding: 0 15px; /* Padding on left and right */
+    transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color changes */
+}
+
+.logo {
+    width: 30px; /* Set width for the logo */
+    height: 30px; /* Set height for the logo */
+}
+
+.title {
+    color: #00c497; /* Title text color */
+    font-size: 20px; /* Font size for the title */
+    margin: 0; /* Remove default margin */
+    flex: 1; /* Allow the title to grow and fill available space */
+    text-align: left; /* Align text to the left */
+    margin-left: 15px; /* Left margin for spacing */
+}
+
+.bookmark {
+    color: #eeeeee; /* White color for "Bookmark" text */
+}
+
+.icon-container {
+    display: flex; /* Use flexbox for icon layout */
+    gap: 20px; /* Horizontal gap between icons */
+    justify-content: flex-end; /* Align icons to the right */
+}
+
+.notification-icon {
+    margin-left: 5px; /* Left margin for spacing */
+    position: relative; /* Position relative for absolute positioning of children */
+    display: flex; /* Use flexbox for icon layout */
+    justify-content: center; /* Center icon */
+    align-items: center; /* Center icon vertically */
+    background-color: #eeeeee; /* White background for notification icon */
+    width: 20px; /* Circle size */
+    height: 20px; /* Circle size */
+    border-radius: 50%; /* Makes it a circle */
+    padding: 5px; /* Adds padding for spacing between icon and border */
+    border: 1px solid #d8d8d8; /* Light border color */
+}
+
+.notification-icon img {
+    width: 20px; /* Icon size */
+    height: 20px; /* Icon size */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.notification-icon img:hover {
+    transform: scale(1.1); /* Scale up icon on hover */
+    opacity: 0.8; /* Reduce opacity on hover */
+}
+
+/* Optional: Add hover effects for each specific icon */
+.theme:hover {
+    filter: brightness(0.8); /* Darken theme icon on hover */
+}
+
+.view_option:hover {
+    filter: sepia(0.5); /* Apply sepia filter on hover */
+}
+
+.enlarge:hover {
+    filter: brightness(1.2); /* Brighten enlarge icon on hover */
+}
+
+/* Search and Sorting Section */
+.search-sort {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space items evenly */
+    height: 60px; /* Set height for the search and sorting section */
+    padding: 0 15px; /* Padding on left and right */
+    transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color changes */
+}
+
+.search-box {
+    width: 240px; /* Set width for the search box */
+    height: 35px; /* Set height for the search box */
+    border-radius: 20px; /* Rounded corners */
+    border: 1px solid #d8d8d8; /* Light border color */
+    font-size: 14px; /* Font size for input text */
+    padding: 0 10px; /* Padding inside the search box */
+}
+
+.sort-button {
+    background: #ffffff; /* White background for sort button */
+    color: #000000; /* Black text color */
+    border: 1px solid #d8d8d8; /* Light border color */
+    border-radius: 20px; /* Rounded corners */
+    font-size: 14px; /* Font size for button text */
+    width: 130px; /* Set width for the button */
+    height: 35px; /* Set height for the button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    position: relative; /* Position relative for absolute positioning of children */
+    transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color changes */
+}
+
+.dropdown {
+    position: relative; /* Position relative for dropdown menu */
+}
+
+.dropdown-menu {
+    display: none; /* Initially hide the dropdown menu */
+    position: absolute; /* Position absolutely */
+    background-color: #ffffff; /* White background for dropdown menu */
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid #d8d8d8; /* Light border color */
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    width: 130px; /* Set width for dropdown menu */
+    top: 40px; /* Position below the button */
+    left: 0; /* Align to the left */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color changes */
+}
+
+.dropdown-item {
+    font-size: 14px; /* Font size for dropdown items */
+    color: #000000; /* Text color for dropdown items */
+    padding: 8px 12px; /* Padding for dropdown items */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Display as block for full width */
+    transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transition for hover effects */
+}
+
+.dropdown-item:hover {
+    background-color: #00c497; /* Change background color on hover */
+    color: #ffffff; /* Change text color on hover */
+    border-radius: 8px; /* Rounded corners on hover */
+}
+
+/* Content Section */
+.content {
+    background: #00c497; /* Background color for content section */
+    width: 390px; /* Set width for content section */
+    height: 405px; /* Set height for content section */
+    border-radius: 20px; /* Rounded corners */
+    margin: 0 auto; /* Center content section */
+    padding: 15px 15px 0 15px; /* Padding for content section */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #d8d8d8; /* Light border color */
+}
+
+.item {
+    height: 65px; /* Set height for each item */
+    background: #ffffff; /* Light background for items */
+    border-radius: 20px; /* Rounded corners */
+    margin-bottom: 15px; /* Space between items */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    padding: 0 15px; /* Padding for items */
+    border: 1px solid #d8d8d8; /* Light border color */
+}
+
+.item-thumbnail {
+    height: 50px; /* Fixed height for the thumbnail */
+    width: 50px; /* Fixed width for the thumbnail */
+    background-size: cover; /* Ensure the image covers the area */
+    background-position: center; /* Center the image */
+    border-radius: 15px; /* Rounded corners */
+    margin-right: 15px; /* Space between thumbnail and text */
+    border: 1px solid #d8d8d8; /* Light border color */
+}
+
+.item-text {
+    margin: 0; /* Remove default margin */
+    font-size: 14px; /* Font size for item text */
+    color: #000000; /* Text color for item text */
+    display: block; /* Change to block for standard compatibility */
+    max-height: 40px; /* Set a fixed height for two lines (adjust as needed) */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis (...) for overflow text */
+    line-height: 20px; /* Set line height to control spacing */
+    max-width: 270px; /* Maximum width for text */
+}
+
+.item a {
+    display: flex; /* Make the link a flex container */
+    align-items: center; /* Center items vertically */
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent */
+    width: 100%; /* Make the link take the full width of the item */
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light mode background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; /* Light mode color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the thumb on hover */
+}
+
+/* Firefox scrollbar styles */
+.scrollable {
+    scrollbar-width: thin; /* Make scrollbar thin */
+    scrollbar-color: #888 #ffffff; /* Light mode thumb color and track color */
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: #212529; /* Dark background */
+    color: #ffffff; /* Light text color */
+}
+
+.dark-mode .search-box {
+    background: #444; /* Darker sort button */
+    color: #ffffff; /* Light text color */
+    border: 1px solid #202020; /* Keep the border color */
+}
+
+.dark-mode .sort-button {
+    background: #444; /* Darker sort button */
+    color: #ffffff; /* Light text color */
+    border: 1px solid #202020; /* Keep the border color */
+}
+
+.dark-mode .notification-icon {
+    background-color: #444; /* Dark background for notification icon */
+    border: 1px solid #202020; /* Keep the border color */
+}
+
+.dark-mode .dropdown-menu {
+    background: #444; /* Dark mode dropdown menu */
+    border: 1px solid #202020; /* Keep the border color */
+}
+
+.dark-mode .dropdown-item {
+    color: #ffffff; /* Light text color for dropdown items */
+}
+
+.dark-mode .content {
+    background: #444; /* Darker content area */
+    border: 1px solid #202020; /* Keep the border color */
+}
+
+.dark-mode .item {
+    background: #22242b; /* Darker item background */
+    border: 1px solid #202020; /* Keep the border color */
+}
+
+.dark-mode .item-thumbnail {
+    border: 1px solid #202020; /* Keep the border color */
+}
+
+.dark-mode .item-text {
+    color: #ffffff; /* Light text color for items */
+}
+
+.dark-mode .dropdown-item:hover {
+    background-color: #212529; /* Darker background on hover */
+}
+
+/* Dark Mode Scrollbar Styles */
+.dark-mode ::-webkit-scrollbar-track {
+    background: #333; /* Dark mode background of the scrollbar track */
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+    background: #555; /* Dark mode color of the scrollbar thumb */
+}
+
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #777; /* Dark mode color of the thumb on hover */
+}
+
+/* Dark Mode Firefox scrollbar styles */
+.dark-mode .scrollable {
+    scrollbar-color: #555 #333; /* Dark mode thumb color and track color */
+}
