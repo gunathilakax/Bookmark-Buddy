@@ -1,24 +1,29 @@
 /* General Body Styles */
 body {
-    width: 450px; /* Set the width of the body */
-    height: 540px; /* Set the height of the body */
-    background: #eeeeee; /* Light background color */
-    color: #22242b; /* Text color */
-    font-family: Arial, sans-serif; /* Font family */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color changes */
+    width: 450px;
+    height: 550px;
+    background: #eeeeee;
+    color: #22242b;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Header Section */
+/* Add a global style for all links */
+a {
+    text-decoration: none;
+}
+
+/* Rest of your existing CSS remains the same */
 .header {
-    height: 50px; /* Set the height of the header */
-    background: #22242b; /* Dark background for the header */
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Space items evenly */
-    padding: 0 15px; /* Padding on left and right */
-    transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color changes */
+    height: 50px;
+    background: #22242b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .logo {
@@ -57,6 +62,12 @@ body {
     border-radius: 50%; /* Makes it a circle */
     padding: 5px; /* Adds padding for spacing between icon and border */
     border: 1px solid #d8d8d8; /* Light border color */
+}
+
+.notification-icon:hover {
+    outline: none; /* Remove the browser's default outline */
+    border: 1px solid #00c497; /* Add a custom border (example: green) */
+    box-shadow: 0 0 2px #00c497; /* Optional: Add a glowing effect */
 }
 
 .notification-icon img {
@@ -103,6 +114,19 @@ body {
     padding: 0 10px; /* Padding inside the search box */
 }
 
+/* Remove the default outline and customize the border */
+.search-box:focus {
+    outline: none; /* Remove the browser's default outline */
+    border: 1px solid #00c497; /* Add a custom border (example: green) */
+    box-shadow: 0 0 2px #00c497; /* Optional: Add a glowing effect */
+}
+
+/* Style the clear button for WebKit browsers */
+.search-box::-webkit-search-cancel-button {
+    filter: invert(37%) sepia(86%) saturate(702%) hue-rotate(112deg) brightness(93%) contrast(88%);
+
+}
+
 .sort-button {
     background: #ffffff; /* White background for sort button */
     color: #000000; /* Black text color */
@@ -115,6 +139,13 @@ body {
     position: relative; /* Position relative for absolute positioning of children */
     transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color changes */
 }
+
+.sort-button:focus {
+    outline: none; /* Remove the default outline */
+    border: 1px solid #00c497; /* Add a custom green border */
+    box-shadow: 0 0 2px #00c497; /* Add a glowing effect */
+}
+
 
 .dropdown {
     position: relative; /* Position relative for dropdown menu */
@@ -137,13 +168,13 @@ body {
 }
 
 .dropdown-item {
-    font-size: 14px; /* Font size for dropdown items */
-    color: #000000; /* Text color for dropdown items */
-    padding: 8px 12px; /* Padding for dropdown items */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    text-decoration: none; /* Remove underline */
-    display: block; /* Display as block for full width */
-    transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transition for hover effects */
+    font-size: 14px;
+    color: #000000;
+    padding: 8px 12px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .dropdown-item:hover {
@@ -156,7 +187,7 @@ body {
 .content {
     background: #00c497; /* Background color for content section */
     width: 390px; /* Set width for content section */
-    height: 405px; /* Set height for content section */
+    height: 408px; /* Set height for content section */
     border-radius: 20px; /* Rounded corners */
     margin: 0 auto; /* Center content section */
     padding: 15px 15px 0 15px; /* Padding for content section */
@@ -182,7 +213,13 @@ body {
     background-position: center; /* Center the image */
     border-radius: 15px; /* Rounded corners */
     margin-right: 15px; /* Space between thumbnail and text */
-    border: 1px solid #d8d8d8; /* Light border color */
+}
+
+.item-thumbnail img {
+    width: 100%; /* Make the image take the full width of the thumbnail */
+    height: 100%; /* Make the image take the full height of the thumbnail */
+    object-fit: cover; /* Ensure the image covers the area while maintaining aspect ratio */
+    border-radius: 15px; /* Rounded corners */
 }
 
 .item-text {
@@ -198,11 +235,11 @@ body {
 }
 
 .item a {
-    display: flex; /* Make the link a flex container */
-    align-items: center; /* Center items vertically */
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit color from parent */
-    width: 100%; /* Make the link take the full width of the item */
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
 }
 
 /* Custom Scrollbar Styles */
@@ -211,13 +248,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Light mode background of the scrollbar track */
-    border-radius: 10px; /* Rounded corners for the track */
+    background: transparent; /* Change to transparent for a line effect */
+    border-radius: 0; /* No rounded corners for track */
 }
 
 ::-webkit-scrollbar-thumb {
     background: #888; /* Light mode color of the scrollbar thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
+    border-radius: 50%; /* Makes the thumb an ellipse */
+    height: 20px; /* Set height for the thumb */
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -236,26 +274,45 @@ body.dark-mode {
     color: #ffffff; /* Light text color */
 }
 
+.dark-mode .notification-icon:hover {
+    outline: none; /* Remove the browser's default outline */
+    border: 1px solid #00c497; /* Add a custom border (example: green) */
+    box-shadow: 0 0 2px #00c497; /* Optional: Add a glowing effect */
+}
+
 .dark-mode .search-box {
     background: #444; /* Darker sort button */
     color: #ffffff; /* Light text color */
-    border: 1px solid #202020; /* Keep the border color */
+    border: 1px solid #6a6a6a; /* Keep the border color */
+}
+
+.dark-mode .search-box:focus {
+    outline: none; /* Remove the browser's default outline */
+    border: 1px solid #00c497; /* Add a custom border (example: green) */
+    box-shadow: 0 0 2px #00c497; /* Optional: Add a glowing effect */
 }
 
 .dark-mode .sort-button {
     background: #444; /* Darker sort button */
     color: #ffffff; /* Light text color */
-    border: 1px solid #202020; /* Keep the border color */
+    border: 1px solid #6a6a6a; /* Keep the border color */
 }
+
+.dark-mode .sort-button:focus {
+    outline: none; /* Remove the default outline */
+    border: 1px solid #00c497; /* Add a custom green border */
+    box-shadow: 0 0 2px #00c497; /* Add a glowing effect */
+}
+
 
 .dark-mode .notification-icon {
     background-color: #444; /* Dark background for notification icon */
-    border: 1px solid #202020; /* Keep the border color */
+    border: 1px solid #6a6a6a; /* Keep the border color */
 }
 
 .dark-mode .dropdown-menu {
     background: #444; /* Dark mode dropdown menu */
-    border: 1px solid #202020; /* Keep the border color */
+    border: 1px solid #6a6a6a; /* Keep the border color */
 }
 
 .dark-mode .dropdown-item {
@@ -264,16 +321,12 @@ body.dark-mode {
 
 .dark-mode .content {
     background: #444; /* Darker content area */
-    border: 1px solid #202020; /* Keep the border color */
+    border: 1px solid #6a6a6a; /* Keep the border color */
 }
 
 .dark-mode .item {
     background: #22242b; /* Darker item background */
-    border: 1px solid #202020; /* Keep the border color */
-}
-
-.dark-mode .item-thumbnail {
-    border: 1px solid #202020; /* Keep the border color */
+    border: 1px solid #6a6a6a; /* Keep the border color */
 }
 
 .dark-mode .item-text {
@@ -300,4 +353,35 @@ body.dark-mode {
 /* Dark Mode Firefox scrollbar styles */
 .dark-mode .scrollable {
     scrollbar-color: #555 #333; /* Dark mode thumb color and track color */
+}
+
+/* Add this to your existing CSS */
+.content.grid-view {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid */
+    gap: 15px; /* Space between items, both horizontally and vertically */
+    row-gap:  0px; /* Ensures vertical spacing is consistent */
+}
+
+.content {
+    align-content: start; /* Align items at the top of the container */
+}
+
+
+.content.grid-view .item-text {
+    max-width: 80px; /* Set max-width for item text in grid view */
+}
+
+/* Hover effect for light theme */
+.item:hover {
+    background: #f0f0f0; /* Light gray background */
+    transform: scale(1.02); /* Slightly enlarge the item */
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for dark theme */
+body.dark-mode .item:hover {
+    background: #333; /* Dark gray background */
+    transform: scale(1.02); /* Slightly enlarge the item */
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition */
 }

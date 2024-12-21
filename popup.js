@@ -17,38 +17,31 @@ function loadBookmarks() {
 function displayBookmarks(bookmarks) {
     const bookmarkList = document.querySelector(".content");
     bookmarkList.innerHTML = ""; // Clear existing items
+
     bookmarks.forEach(bookmark => {
-        // Create a link for the entire item
+        const container = document.createElement('div');
         const link = document.createElement('a');
-        link.href = bookmark.url; // Set the URL
-        link.target = "_blank"; // Open in a new tab
-        link.style.color = 'inherit'; // Inherit color from parent
-        link.style.textDecoration = 'none'; // Remove underline
+        link.href = bookmark.url;
+        link.target = "_blank";
 
         const item = document.createElement('div');
         item.classList.add('item');
 
         const thumbnail = document.createElement('div');
         thumbnail.classList.add('item-thumbnail');
-
-        // Set the background image for the thumbnail
-        if (bookmark.url) {
-            thumbnail.style.backgroundImage = `url(https://www.google.com/s2/favicons?domain=${bookmark.url})`;
-        } else {
-            thumbnail.style.backgroundImage = 'url(/assets/logo.png)'; // Optional: Set a default icon if no URL
-        }
-        
-        item.appendChild(thumbnail);
+        thumbnail.style.backgroundImage = bookmark.url 
+            ? `url(https://www.google.com/s2/favicons?domain=${bookmark.url})` 
+            : 'url(/assets/logo.png)';
 
         const text = document.createElement('p');
         text.classList.add('item-text');
-        text.textContent = bookmark.title; // Set the text
+        text.textContent = bookmark.title;
 
-        // Append text to the item
+        item.appendChild(thumbnail);
         item.appendChild(text);
-        link.appendChild(item); // Append the item to the link
-
-        bookmarkList.appendChild(link); // Append the link to the bookmark list
+        link.appendChild(item);
+        container.appendChild(link);
+        bookmarkList.appendChild(container);
     });
 }
 
@@ -86,12 +79,26 @@ document.getElementById("sortButton").addEventListener("click", function() {
     dropdownMenu.style.display = isVisible ? "none" : "block";
 });
 
-// Sort the bookmarks array based on selected option
+
+// Event listener for sort button clicks
 document.querySelectorAll('.dropdown-item').forEach(item => {
     item.addEventListener('click', function() {
         const sortBy = item.textContent.trim();
-        sortBookmarks(sortBy);
-        document.getElementById("dropdownMenu").style.display = "none"; // Hide dropdown after selection
+        const searchTerm = document.querySelector('.search-box').value.toLowerCase();
+
+        let bookmarksToSort = allBookmarks;
+
+        if (searchTerm) {
+            bookmarksToSort = allBookmarks.filter(bookmark =>
+                bookmark.title.toLowerCase().includes(searchTerm)
+            );
+        }
+
+        const sortedBookmarks = sortBookmarks(sortBy, bookmarksToSort);
+        displayBookmarks(sortedBookmarks);
+
+        document.getElementById("sortButton").textContent = sortBy; // Update button text
+        document.getElementById("dropdownMenu").style.display = "none"; // Hide dropdown
     });
 });
 
@@ -104,9 +111,9 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// Sort bookmarks function
-function sortBookmarks(sortBy) {
-    let sortedBookmarks = [...allBookmarks]; // Create a copy of the bookmarks array
+/// Function to sort bookmarks
+function sortBookmarks(sortBy, bookmarks) {
+    const sortedBookmarks = [...bookmarks];
 
     switch (sortBy) {
         case "Latest":
@@ -128,34 +135,21 @@ function sortBookmarks(sortBy) {
             sortedBookmarks.sort((a, b) => b.url.localeCompare(a.url));
             break;
         default:
-            sortedBookmarks = allBookmarks; // Default to original order
+            return bookmarks; // No sorting
     }
 
-    // Display sorted bookmarks
-    displayBookmarks(sortedBookmarks);
+    return sortedBookmarks;
 }
 
-// Function to load dark mode preference from chrome.storage
-function loadDarkMode() {
-    chrome.storage.sync.get(['darkMode'], function(result) {
-        // Set dark mode to true by default
-        const isDarkMode = result.darkMode !== undefined ? result.darkMode : true; // Default to true if not set
-        if (isDarkMode) {
-            document.body.classList.add('dark-mode');
-            document.querySelector('.header').classList.add('dark-mode');
-            document.querySelector('.search-sort').classList.add('dark-mode');
-            document.querySelector('.sort-button').classList.add('dark-mode');
-            document.querySelector('.dropdown-menu').classList.add('dark-mode');
-            document.querySelectorAll('.dropdown-item').forEach(item => {
-                item.classList.add('dark-mode');
-            });
-            // Set the light mode icon as default
-            const darkModeIcon = document.querySelector("#darkModeToggle img");
-            darkModeIcon.src = "/assets/light.png"; // Set light mode icon
-            document.querySelector(".view_option").src = "/assets/gride2.png"; // Set view option icon for dark mode
-            document.querySelector(".enlarge").src = "/assets/enlarge2.png"; // Set enlarge icon for dark mode
-        }
-    });
+
+// Function to update view icon based on current modes
+function updateViewIcon(isDarkMode, isGridView) {
+    const viewOptionIcon = document.querySelector(".view_option");
+    if (isDarkMode) {
+        viewOptionIcon.src = isGridView ? "/assets/list2.png" : "/assets/gride2.png";
+    } else {
+        viewOptionIcon.src = isGridView ? "/assets/list.png" : "/assets/gride.png";
+    }
 }
 
 // Function to toggle dark mode
@@ -167,7 +161,6 @@ document.getElementById("darkModeToggle").addEventListener("click", function() {
     const dropdownMenu = document.querySelector(".dropdown-menu");
     const dropdownItems = document.querySelectorAll(".dropdown-item");
     const darkModeIcon = document.querySelector("#darkModeToggle img");
-    const viewOptionIcon = document.querySelector(".view_option");
     const enlargeIcon = document.querySelector(".enlarge");
 
     // Toggle dark mode on the body and other elements
@@ -178,24 +171,88 @@ document.getElementById("darkModeToggle").addEventListener("click", function() {
     dropdownMenu.classList.toggle('dark-mode');
     dropdownItems.forEach(item => item.classList.toggle('dark-mode'));
 
-    // Change the dark mode icon based on the current mode
-    if (body.classList.contains('dark-mode')) {
-        darkModeIcon.src = "/assets/light.png"; // Set light mode icon
-        viewOptionIcon.src = "/assets/gride2.png"; // Set view option icon for dark mode
-        enlargeIcon.src = "/assets/enlarge2.png"; // Set enlarge icon for dark mode
+    const isDarkMode = body.classList.contains('dark-mode');
+    const isGridView = document.querySelector(".content").classList.contains("grid-view");
+
+    // Change the dark mode icon and enlarge icon
+    if (isDarkMode) {
+        darkModeIcon.src = "/assets/light.png";
+        enlargeIcon.src = "/assets/enlarge2.png";
     } else {
-        darkModeIcon.src = "/assets/dark.png"; // Set dark mode icon
-        viewOptionIcon.src = "/assets/gride.png"; // Set view option icon for light mode
-        enlargeIcon.src = "/assets/enlarge.png"; // Set enlarge icon for light mode
+        darkModeIcon.src = "/assets/dark.png";
+        enlargeIcon.src = "/assets/enlarge.png";
     }
 
+    // Update view icon based on both dark mode and view mode
+    updateViewIcon(isDarkMode, isGridView);
+
     // Save the dark mode preference in chrome.storage
-    const darkModeEnabled = body.classList.contains('dark-mode');
-    chrome.storage.sync.set({ darkMode: darkModeEnabled });
+    chrome.storage.sync.set({ darkMode: isDarkMode });
 });
+
+// Function to load view preference from chrome.storage
+function loadViewPreference() {
+    chrome.storage.sync.get(['viewMode'], function(result) {
+        const isGridView = result.viewMode === 'grid';
+        const content = document.querySelector(".content");
+        content.classList.toggle("grid-view", isGridView);
+
+        // Update view icon based on both dark mode and current view
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        updateViewIcon(isDarkMode, isGridView);
+    });
+}
+
+// Add event listener for the view option icon
+document.querySelector(".view_option").addEventListener("click", function() {
+    const content = document.querySelector(".content");
+    const isGridView = content.classList.toggle("grid-view");
+
+    // Determine the current mode (dark or light)
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+
+    // Change the icon based on the view and current mode
+    if (isGridView) {
+        this.src = isDarkMode ? "/assets/list2.png" : "/assets/list.png"; // Grid view icon
+    } else {
+        this.src = isDarkMode ? "/assets/gride2.png" : "/assets/gride.png"; // List view icon
+    }
+
+    // Save the view preference in chrome.storage
+    chrome.storage.sync.set({ viewMode: isGridView ? 'grid' : 'list' });
+});
+
+// Function to load dark mode preference from chrome.storage
+function loadDarkMode() {
+    chrome.storage.sync.get(['darkMode'], function(result) {
+        const isDarkMode = result.darkMode !== undefined ? result.darkMode : true;
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            document.querySelector('.header').classList.add('dark-mode');
+            document.querySelector('.search-sort').classList.add('dark-mode');
+            document.querySelector('.sort-button').classList.add('dark-mode');
+            document.querySelector('.dropdown-menu').classList.add('dark-mode');
+            document.querySelectorAll('.dropdown-item').forEach(item => {
+                item.classList.add('dark-mode');
+            });
+            
+            const darkModeIcon = document.querySelector("#darkModeToggle img");
+            darkModeIcon.src = "/assets/light.png";
+            document.querySelector(".enlarge").src = "/assets/enlarge2.png";
+            
+            // Update view icon based on current view mode
+            const isGridView = document.querySelector(".content").classList.contains("grid-view");
+            updateViewIcon(true, isGridView);
+        }
+    });
+}
 
 // Initialize dark mode on page load
 loadDarkMode();
+
+// Load the view preference on page load
+loadViewPreference();
 
 // Initialize by loading bookmarks
 loadBookmarks();
