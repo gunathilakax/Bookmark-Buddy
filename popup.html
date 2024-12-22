@@ -2,53 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bookmark Buddy - A Chrome extension for managing bookmarks">
     <title>Bookmark Buddy</title>
     <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-<!-- Header Section -->
-<div class="header">
-    <img src="/assets/logo.png" class="logo" alt="Logo">
-    <h1 class="title"><span class="bookmark">Bookmark</span> Buddy</h1>
-    <div class="icon-container">
-        <div class="notification-icon">
-            <img src="/assets/gride.png" class="view_option" alt="view_option">  
-        </div>
-        <div class="notification-icon">
-            <img src="/assets/enlarge.png" class="enlarge" alt="enlarge">  
-        </div>
-        <div class="notification-icon" id="darkModeToggle">
-            <img src="/assets/dark.png" class="theme" alt="theme">
+    <div class="header">
+        <img src="/assets/logo.png" class="logo" alt="Bookmark Buddy Logo">
+        <h1 class="title"><span class="bookmark">Bookmark</span> Buddy</h1>
+        <div class="icon-container">
+            <div class="notification-icon">
+                <img src="/assets/gride.png" class="view_option" alt="Change View">  
+            </div>
+            <div class="notification-icon">
+                <img src="/assets/enlarge.png" class="enlarge" alt="Enlarge View">  
+            </div>
+            <div class="notification-icon" id="darkModeToggle">
+                <img src="/assets/dark.png" class="theme" alt="Toggle Theme">
+            </div>
         </div>
     </div>
-</div>
 
-
-
-    <!-- Search and Sorting Section -->
     <div class="search-sort">
-        <input type="search" class="search-box" placeholder="Search">
+        <input type="search" class="search-box" placeholder="Search bookmarks" aria-label="Search bookmarks">
         <div class="dropdown">
-            <button class="btn sort-button" id="sortButton">Sort By</button>
-            <ul class="dropdown-menu" id="dropdownMenu">
-                <li><a class="dropdown-item" href="#">Latest</a></li>
-                <li><a class="dropdown-item" href="#">Oldest</a></li>
-                <li><a class="dropdown-item" href="#">Title: A to Z</a></li>
-                <li><a class="dropdown-item" href="#">Title: Z to A</a></li>
-                <li><a class="dropdown-item" href="#">URL: A to Z</a></li>
-                <li><a class="dropdown-item" href="#">URL: Z to A</a></li>
+            <button class="btn sort-button" id="sortButton" aria-haspopup="true" aria-expanded="false">Sort By</button>
+            <ul class="dropdown-menu" id="dropdownMenu" role="menu" aria-labelledby="sortButton">
+                <li><a class="dropdown-item" href="#" role="menuitem">Latest</a></li>
+                <li><a class="dropdown-item" href="#" role="menuitem">Oldest</a></li>
+                <li><a class="dropdown-item" href="#" role="menuitem">Title: A to Z</a></li>
+                <li><a class="dropdown-item" href="#" role="menuitem">Title: Z to A</a></li>
+                <li><a class="dropdown-item" href="#" role="menuitem">URL: A to Z</a></li>
+                <li><a class="dropdown-item" href="#" role="menuitem">URL: Z to A</a></li>
             </ul>
         </div>
     </div>
 
-    <!-- Content Section -->
-    <div class="content scrollable">
-        <div class="item">
-            <div class="item-thumbnail"></div>
-            <p class="item-text"></p>
-        </div>
-    </div>
+    <div class="content scrollable" role="main"></div>
 
     <script src="popup.js"></script>
 </body>
