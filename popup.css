@@ -227,7 +227,7 @@ a {
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 20px;
-    max-width: 270px;
+    max-width: calc(100% - 70px);
 }
 
 .item a {
@@ -270,7 +270,7 @@ a {
 }
 
 .content.grid-view .item-text {
-    max-width: 80px;
+    max-width: calc(100% - 70px);
 }
 
 /* Item Hover Effects */

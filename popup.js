@@ -170,6 +170,11 @@ class BookmarkManager {
             chrome.storage.sync.set({ darkMode: isDarkMode });
         });
 
+        // enlarge toggle
+        document.querySelector('.enlarge').addEventListener('click', function() {
+            window.open(chrome.runtime.getURL('index.html'), '_blank');
+        });
+
         // View toggle
         document.querySelector(".view_option").addEventListener("click", () => {
             const content = document.querySelector(".content");

@@ -18,6 +18,12 @@
       "16": "/assets/logo.png",
       "48": "/assets/logo.png",
       "128": "/assets/logo.png"
-    }
-  }
+    },
+    "web_accessible_resources": [
+        {
+            "resources": ["index.html", "popup.css", "popup.js", "assets/*"],
+            "matches": ["<all_urls>"]
+        }
+    ]
+}
   
