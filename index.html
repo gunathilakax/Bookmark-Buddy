@@ -80,6 +80,10 @@
             max-width: calc(100% - 10px);
         }
 
+        #enlargeToggle{
+            display: none; /* Hide enlarge option */
+        }
+
         
     </style>
 </head>
@@ -91,7 +95,7 @@
             <div class="notification-icon">
                 <img src="/assets/gride.png" class="view_option" alt="Change View">  
             </div>
-            <div class="notification-icon">
+            <div class="notification-icon" id="enlargeToggle">
                 <img src="/assets/enlarge.png" class="enlarge" alt="Enlarge View">  
             </div>
             <div class="notification-icon" id="darkModeToggle">
