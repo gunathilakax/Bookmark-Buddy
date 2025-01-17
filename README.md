@@ -1,80 +1,72 @@
-# Bookmark Buddy
+# 📚 Bookmark Buddy
 
-#### Extension: https://microsoftedge.microsoft.com/addons/detail/iignfaffajfhipfegjaoeppbmopnmboe
+[![Edge Add-on](https://img.shields.io/badge/Microsoft%20Edge-Add--on-blue?style=for-the-badge&logo=microsoft-edge)](https://microsoftedge.microsoft.com/addons/detail/iignfaffajfhipfegjaoeppbmopnmboe)
 
-#### Description:
-
-**Bookmark Buddy** is a browser extension developed to simplify bookmark management and enhance browsing productivity. It offers a clean, user-friendly interface and a variety of powerful functionalities like search, sorting, theme switching, and view customization.
-
-### Key Features
-
-1. **Search Functionality:**
-   Quickly locate bookmarks using a responsive search bar for efficient browsing.
-
-2. **Sorting Options:**
-   Organize bookmarks by date (latest or oldest), title (A-Z or Z-A), or URL (A-Z or Z-A) for tailored management.
-
-3. **Grid and List Views:**
-   Switch seamlessly between grid and list layouts to suit your preferences.
-
-4. **Dark and Light Modes:**
-   Adapt the interface to your environment with a single click for optimal comfort.
-
-5. **Full-Screen Mode:**
-   Expand your view for an immersive browsing experience while retaining full functionality.
-
-### Project Details
-
-**Project Title:** Bookmark Buddy (Browser Extension Using JavaScript)  
-**Name:** Sithija Shehara Gunathilaka  
-**GitHub Username:** gunathilakax  
-**EdX Username:** sithija_shehara  
-**Country:** Sri Lanka  
-**City:** Gampaha  
-**Date:** 26/12/2024  
-
-### Files in the Project
-
-1. **popup.html:**
-   This file defines the structure and layout of the extension. It includes the header, search bar, sorting dropdown, and the main content area for displaying bookmarks.
-
-2. **popup.css:**
-   This CSS file manages the visual appearance, including buttons, dropdowns, and themes (dark and light). It incorporates responsive design elements and smooth transitions for an enhanced user experience.
-
-3. **popup.js:**
-   The JavaScript file powers the functionality of the extension, handling:
-   - Loading and displaying bookmarks using the Chrome Bookmarks API.
-   - Implementing search, sorting, and view toggling (grid and list).
-   - Managing theme switching (dark and light modes).
-   - Adding event listeners for user interactions, such as dropdown menus and the "Enlarge" button.
-
-### Design Choices
-
-- **Clean and Minimalist UI:**
-   The design prioritizes simplicity and accessibility for users with varying technical expertise.
-
-- **Flexibility in User Preferences:**
-   Features like sorting, view toggling, and theme switching ensure adaptability to individual needs.
-
-- **Performance Optimization:**
-   The extension is optimized for handling large bookmark collections efficiently, with features like debounced search input and optimized rendering.
-
-### Installation
-
-1. Clone this repository to your local machine.
-2. Open the `chrome://extensions` page in your Chrome browser.
-3. Enable "Developer mode" using the toggle in the top-right corner.
-4. Click "Load unpacked" and select the project folder.
-5. Bookmark Buddy is now ready to use!
-
-### Conclusion
-
-Bookmark Buddy is a comprehensive tool for efficient bookmark management, combining functionality and simplicity to improve the browsing experience. Feedback and suggestions for further improvements are always welcome!
+**Bookmark Buddy** is a powerful and intuitive browser extension designed to enhance your bookmarking experience. Easily organize, manage, and access your favorite websites with just a click.
 
 ---
 
-### Contact
+## 🚀 Features
 
-For any inquiries or feedback, feel free to reach out:
-- **Email:** sithijashehara2001@gmail.com
-- **LinkedIn:** https://www.linkedin.com/in/sithijagunathilaka
+✅ **One-Click Bookmarking** – Save your favorite web pages effortlessly.
+
+✅ **Organized Bookmark Management** – Categorize and sort bookmarks for easy retrieval.
+
+✅ **Cloud Sync** – Access your bookmarks across multiple devices seamlessly.
+
+✅ **Customizable UI** – Tailor the extension to fit your workflow.
+
+✅ **Fast Search** – Find your saved pages instantly with an efficient search function.
+
+✅ **Privacy-Focused** – Your bookmarks are stored securely with no tracking.
+
+---
+
+## 📥 Installation
+
+### 🖥️ Microsoft Edge
+1. Go to the [Microsoft Edge Add-ons Store](https://microsoftedge.microsoft.com/addons/detail/iignfaffajfhipfegjaoeppbmopnmboe).
+2. Click **Get** and then **Add extension**.
+3. Enjoy effortless bookmarking!
+
+---
+
+## 🎥 Bookmark Buddy
+
+![Bookmark Buddy in Action](https://github.com/gunathilakax/Bookmark-Buddy/blob/main/assets/logo.png)
+
+---
+
+## 🛠️ Usage
+1. Click the **Bookmark Buddy** icon in the toolbar.
+2. Save pages with a single click.
+3. Manage bookmarks efficiently using categories.
+4. Search and retrieve saved links effortlessly.
+
+---
+
+## 📌 Why Choose Bookmark Buddy?
+✅ **User-Friendly Interface** – Intuitive and clean UI designed for efficiency.
+✅ **Lightweight & Fast** – No slowdowns, works seamlessly in the background.
+✅ **100% Free & Open Source** – No hidden charges or subscriptions.
+
+---
+
+## 🛠️ Contributing
+We welcome contributions from the community! Follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-name`
+3. Make your changes and commit: `git commit -m 'Add new feature'`
+4. Push your changes: `git push origin feature-name`
+5. Open a pull request.
+
+---
+
+## 📞 Support
+If you have any issues or feature requests, feel free to open an [issue](https://github.com/gunathilakax/Bookmark-Buddy/issues) or contact us at **sithijashehara2001@gmail.com**.
+
+---
+
+🔗 **Stay Connected:** Follow us on [LinkedIn](https://www.linkedin.com/in/sithijagunathilaka) for updates and news!
+
