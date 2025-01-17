@@ -47,7 +47,9 @@
 
 ## 📌 Why Choose Bookmark Buddy?
 ✅ **User-Friendly Interface** – Intuitive and clean UI designed for efficiency.
+
 ✅ **Lightweight & Fast** – No slowdowns, works seamlessly in the background.
+
 ✅ **100% Free & Open Source** – No hidden charges or subscriptions.
 
 ---
